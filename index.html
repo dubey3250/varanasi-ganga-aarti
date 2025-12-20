@@ -1,174 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ganga Aarti Booking</title>
-  <meta name="description" content="Book Ganga Aarti, Wedding Aarti, and Professional Aarti ceremonies with ease." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganga Aarti Booking</title>
 
-  <style>
-    /* ------------------ Base Styles ------------------ */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #1f2937; }
-    a { text-decoration: none; color: inherit; }
+<style>
+/* ================= RESET ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1f2937;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; cursor: pointer; }
 
-    /* ------------------ Header / Nav ------------------ */
-    header { position: sticky; top: 0; z-index: 1000; background: #0f172a; }
-    nav { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 1rem; color: #fff; }
-    .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; }
-    .nav-links { display: flex; gap: 1.2rem; }
-    .menu-toggle { display: none; font-size: 1.4rem; cursor: pointer; }
-    .nav-links a { font-size: 0.95rem; opacity: 0.9; }
-    .nav-links a:hover { opacity: 1; }
-    .cta { background: #f59e0b; color: #000; padding: 0.5rem 0.9rem; border-radius: 6px; font-weight: 600; }
+/* ================= HEADER ================= */
+header {
+  background: #0f172a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+.nav-links a {
+  opacity: 0.9;
+}
+.nav-links a:hover {
+  opacity: 1;
+}
 
-    /* ------------------ Hero Slider ------------------ */
-    .hero { position: relative; height: 80vh; overflow: hidden; }
-    .slides { height: 100%; display: flex; animation: slide 18s infinite; }
-    .slide { min-width: 100%; height: 100%; position: relative; background-size: cover; background-position: center; }
-    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 1rem; }
-    .overlay h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    .overlay p { font-size: 1.1rem; max-width: 700px; }
+.cta {
+  background: #f59e0b;
+  color: #000;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
 
-    @keyframes slide {
-      0%, 30% { transform: translateX(0); }
-      35%, 65% { transform: translateX(-100%); }
-      70%, 100% { transform: translateX(-200%); }
-    }
+/* ================= SLIDER ================= */
+.hero {
+  height: 85vh;
+  overflow: hidden;
+  position: relative;
+}
+.slider {
+  display: flex;
+  height: 100%;
+  animation: slide 18s infinite ease-in-out;
+}
+.slide {
+  flex: 0 0 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.slide1 { background-image: url("https://images.unsplash.com/photo-1604496464356-7c3bb5c4c0a1"); }
+.slide2 { background-image: url("https://images.unsplash.com/photo-1582550945154-66ea8fff25e2"); }
+.slide3 { background-image: url("https://images.unsplash.com/photo-1600628422019-0f0ef0d16f50"); }
 
-    /* ------------------ Sections ------------------ */
-    section { max-width: 1200px; margin: auto; padding: 3rem 1rem; }
-    .section-title { text-align: center; margin-bottom: 2rem; }
-    .section-title h2 { font-size: 1.8rem; margin-bottom: 0.4rem; }
-    .section-title p { color: #6b7280; }
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+}
+.overlay h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+.overlay p {
+  max-width: 700px;
+  font-size: 1.1rem;
+}
 
-    /* ------------------ Services ------------------ */
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; transition: 0.3s; background: #fff; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-    .card h3 { margin-bottom: 0.5rem; }
-    .card p { color: #4b5563; font-size: 0.95rem; }
+/* Slider animation */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(0); }
+  35%  { transform: translateX(-100%); }
+  65%  { transform: translateX(-100%); }
+  70%  { transform: translateX(-200%); }
+  100% { transform: translateX(-200%); }
+}
 
-    /* ------------------ WhatsApp Booking ------------------ */
-    .whatsapp { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; text-align: center; }
-    .whatsapp a { display: inline-block; margin-top: 1rem; background: #22c55e; color: #fff; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: 600; }
+/* ================= SECTIONS ================= */
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3.5rem 1rem;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.section-title h2 {
+  font-size: 1.9rem;
+}
+.section-title p {
+  color: #6b7280;
+}
 
-    /* ------------------ Footer ------------------ */
-    footer { background: #020617; color: #cbd5f5; padding: 2rem 1rem; }
-    footer .footer-inner { max-width: 1200px; margin: auto; text-align: center; font-size: 0.9rem; }
+/* ================= SERVICES ================= */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.6rem;
+  border: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
 
-    /* ------------------ Responsive ------------------ */
-    @media (max-width: 768px) {
-      .overlay h1 { font-size: 1.6rem; }
-      .nav-links { display: none; position: absolute; top: 64px; right: 0; background: #0f172a; flex-direction: column; width: 200px; padding: 1rem; }
-      .nav-links a { padding: 0.6rem 0; }
-      .menu-toggle { display: block; }
-    }
-      .nav-links { display: none; }
-    }
-  .nav-links.open { display: flex !important; }
-  </style>
+/* ================= WHATSAPP ================= */
+.whatsapp {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.whatsapp a {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #22c55e;
+  color: #fff;
+  padding: 0.9rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #020617;
+  color: #cbd5f5;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: #0f172a;
+    flex-direction: column;
+    width: 220px;
+    padding: 1rem;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .overlay h1 { font-size: 1.6rem; }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- ================== Header ================== -->
-  <header>
-    <nav>
-      <div class="logo">Ganga Aarti Booking</div>
-      <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About Us</a>
-        <a href="#book" class="cta">Book Now</a>
-      </div>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header>
+<nav>
+  <div class="logo">GangaAartiBooking.com</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-  <!-- ================== Hero ================== -->
-  <div class="hero" id="home">
-    <div class="slides">
-      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1604496464356-7c3bb5c4c0a1');">
-        <div class="overlay">
-          <h1>ॐ नमः शिवाय</h1>
-          <p>Experience the divine Ganga Aarti on the sacred ghats of Varanasi</p>
-        </div>
+  <div class="nav-links" id="nav">
+    <a onclick="scrollToSection('home')">Home</a>
+    <a onclick="scrollToSection('services')">Services</a>
+    <a onclick="scrollToSection('about')">About Us</a>
+    <a class="cta" onclick="scrollToSection('book')">Book Now</a>
+  </div>
+</nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="slider">
+    <div class="slide slide1">
+      <div class="overlay">
+        <h1>ॐ नमः शिवाय</h1>
+        <p>Experience the divine Ganga Aarti in Varanasi</p>
       </div>
-      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1582550945154-66ea8fff25e2');">
-        <div class="overlay">
-          <h1>गंगे च यमुने चैव</h1>
-          <p>Traditional Wedding & Special Occasion Aarti ceremonies</p>
-        </div>
+    </div>
+    <div class="slide slide2">
+      <div class="overlay">
+        <h1>गंगे च यमुने चैव</h1>
+        <p>Wedding & Special Occasion Aarti</p>
       </div>
-      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1600628422019-0f0ef0d16f50');">
-        <div class="overlay">
-          <h1>सर्वे भवन्तु सुखिनः</h1>
-          <p>Professionally organized rituals with authentic Vedic traditions</p>
-        </div>
+    </div>
+    <div class="slide slide3">
+      <div class="overlay">
+        <h1>सर्वे भवन्तु सुखिनः</h1>
+        <p>Professionally managed Aarti ceremonies</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ================== Services ================== -->
-  <section id="services">
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Authentic Aarti ceremonies tailored to your needs</p>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Authentic Vedic rituals</p>
+  </div>
+  <div class="services">
+    <div class="card">
+      <h3>*Ganga Aarti*</h3>
+      <p><strong>Evening Aarti at Dashashwamedh and Assi Ghats.</strong></p>
+      <p>Ganga Aarti is a sacred and spiritually uplifting ritual performed every evening on the holy ghats of Varanasi, dedicated to Maa Ganga. This divine ceremony combines Vedic mantras, rhythmic chants, ringing bells, conch sounds, and the offering of illuminated lamps to the river, creating an atmosphere of deep devotion and peace. Witnessing or participating in Ganga Aarti is believed to cleanse the soul, remove negative energies, and bring prosperity and inner calm.</p> 
     </div>
-    <div class="services">
-      <div class="card">
-        <h3>Ganga Aarti</h3>
-        <p><strong>Location:</strong> Dashashwamedh & Assi Ghat</p>
-        <p><strong>Timings:</strong> Evening (Sunset)</p>
-        <p>Experience the world-famous Ganga Aarti performed with lamps, chants, and conch sounds by trained priests.</p>
-      </div>
-      <div class="card">
-        <h3>Wedding Aarti</h3>
-        <p><strong>Occasions:</strong> Marriage, Engagement, Anniversary</p>
-        <p><strong>Includes:</strong> Vedic mantras, diya aarti, blessings</p>
-        <p>A sacred and auspicious Aarti ceremony conducted for couples to mark new beginnings.</p>
-      </div>
-      <div class="card">
-        <h3>Professional Aarti</h3>
-        <p><strong>Ideal for:</strong> Events, Hotels, Corporate Programs</p>
-        <p><strong>Customization:</strong> Priest count, duration, shlokas</p>
-        <p>Professionally managed Aarti services with traditional discipline and modern coordination.</p>
-      </div>
+    <div class="card">
+      <h3>*Wedding Aarti*</h3>
+      <p><strong>Sacred ceremonies for marriage and anniversaries.</strong></p>
+      <p>Wedding Aarti is a sacred ritual performed to bless couples embarking on a new journey of life together. Rooted in ancient Vedic traditions, this Aarti invokes divine blessings for harmony, prosperity, love, and long-lasting marital happiness. It is commonly performed during weddings, engagements, anniversaries, or special family occasions to seek the grace of the divine for the couple and their families.</p>
     </div>
-  </section>
+    <div class="card">
+      <h3>*Professional Aarti*</h3>
+      <p><strong>Customized Aarti services for events and hotels.</strong></p>
+      <p>Professional Aarti services are designed for large-scale events, hotels, corporate programs, spiritual gatherings, and cultural occasions where tradition meets organized execution. This service ensures that rituals are performed with complete discipline, authenticity, and coordination while maintaining high standards of professionalism. It is ideal for institutions and events that wish to offer a meaningful spiritual experience to guests and participants.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- ================== About ================== -->
-  <section id="about">
-    <div class="section-title">
-      <h2>About Us</h2>
-      <p>Preserving traditions with devotion and professionalism</p>
-    </div>
-    <p style="max-width:900px;margin:auto;text-align:center;color:#4b5563;">
-      We are a dedicated team based in Varanasi, offering authentic Ganga Aarti and Vedic
-      ritual services. With years of experience and trusted priests, we ensure every ceremony
-      is performed with purity, discipline, and devotion.
-    </p>
-  </section>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">
+    <h2>About Us</h2>
+    <p>Tradition with professionalism</p>
+  </div>
+  <p style="text-align:center;max-width:900px;margin:auto;color:#4b5563;">
+We are a dedicated team based in the sacred city of Varanasi, committed to preserving and delivering the timeless spiritual traditions of Ganga Aarti and Vedic rituals. With years of experience and deep-rooted knowledge of ancient practices, our priests perform every ceremony with purity, devotion, and strict adherence to traditional scriptures.
 
-  <!-- ================== WhatsApp Booking ================== -->
-  <section id="book">
-    <div class="section-title">
-      <h2>Book via WhatsApp</h2>
-      <p>Fast, simple, and direct booking</p>
-    </div>
-    <div class="whatsapp">
-      <p>Click below to chat with us on WhatsApp and confirm your Aarti booking.</p>
-      <a href="https://wa.me/919999999999" target="_blank">Book on WhatsApp</a>
-    </div>
-  </section>
+Our mission is to provide a seamless and spiritually enriching experience by combining authentic rituals with professional coordination and modern service standards. Whether it is a personal prayer, wedding ceremony, or large-scale spiritual event, we ensure that every Aarti is conducted with reverence, discipline, and attention to detail.
 
-  <!-- ================== Footer ================== -->
-  <footer>
-    <div class="footer-inner">
-      <p>📍 Dashashwamedh Ghat, Varanasi, Uttar Pradesh, India</p>
-      <p>© 2025 Ganga Aarti Booking. All rights reserved.</p>
-    </div>
-  </footer>
+Trusted by devotees from across India and abroad, we take pride in creating meaningful spiritual moments that foster peace, positivity, and divine connection. At Ganga Aarti Booking, tradition is honored, and professionalism is promised.
+  </p>
+</section>
+
+<!-- BOOK -->
+<section id="book">
+  <div class="section-title">
+    <h2>Book via WhatsApp</h2>
+  </div>
+  <div class="whatsapp">
+    <p>Chat with us to confirm your booking.</p>
+    <a href="https://wa.me/919999999999" target="_blank">Book on WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p>📍 Dashashwamedh Ghat, Varanasi, India</p>
+  <p>© 2025 GangaAartiBooking.com | All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("open");
+}
+
+function scrollToSection(id) {
+  document.getElementById("nav").classList.remove("open");
+  document.getElementById(id).scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+</script>
 
 </body>
 </html>
