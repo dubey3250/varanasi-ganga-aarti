@@ -88,6 +88,100 @@ nav {
   font-weight: 600;
 }
 
+        
+/*style for our devotees*/
+.stats-section {
+  padding: 4rem 1rem;
+  background: #fff9f0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+.stats-card {
+  max-width: 1000px;
+  width: 100%;
+  background: linear-gradient(135deg, #fff7ed, #fffbeb);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Title */
+.stats-card h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual stat box */
+.stat-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.2rem 1.5rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(251, 191, 36, 0.15),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.stat-box:hover::before {
+  opacity: 1;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+}
+
+/* Number box */
+.stat-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  height: 70px;
+  margin: 0 auto;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #92400e;
+  background: linear-gradient(135deg, #fde68a, #f59e0b);
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(217, 119, 6, 0.35);
+}
+
+/* Label text */
+.stat-box p {
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+}
+
 /* ================= SLIDER ================= */
 .hero {
   height: 85vh;
@@ -354,19 +448,28 @@ footer {
     <div class="slide slide1">
       <div class="overlay">
         <h1>ॐ नमः शिवाय</h1>
-        <p>Experience the divine Ganga Aarti in Varanasi</p>
+        <h2>Experience the divine Ganga Aarti in Varanasi</h2>
+        <h5>
+          वाराणसी नगरे पवित्रां गङ्गां साक्षात्कर्तुं आगच्छ। अत्र दीपप्रज्वालनेन, मन्त्रैः, तथा पुरोहितैः पूजायाम् आध्यात्मिकः अनुभवः लभ्यते। प्राचीनानाम् संस्कारानां प्रकाशेण, गङ्गा नद्याः पवित्र जलप्रवाहे सम्मिलित्वा चित्तं शान्तिं च अनुभवति। हृदयस्पर्शी प्रार्थनायाः स्वराः, दीपप्रज्वलनस्य शोभा, तथा शान्तिमयः वातावरणः भक्तानाम् आत्मसंवेदनं वर्धयति। एषः केवलं पूजोपक्रमः न, किन्तु आत्मसंतोषाय मार्गः, आत्मज्ञानाय अवसरः च। यत्र भक्तिः, श्रद्धा च एकीकृताः भवन्ति, तत्र स्मृतयः चिरस्थायिन्यः भविष्यन्ति।
+        </h5>
       </div>
     </div>
     <div class="slide slide2">
       <div class="overlay">
         <h1>गंगे च यमुने चैव</h1>
-        <p>Wedding & Special Occasion Aarti</p>
+        <h2>Wedding & Special Occasion Aarti</h2>
+        <h5>
+          जीवनस्य विशेषक्षणानि गङ्गा यमुना चाभ्यर्थनया पूजायाः माध्यमेन सुसज्जयन्ति। विवाहेषु, वार्षिकोत्सवे, अथवा अन्येषु उत्सवे, संस्कृतिरक्षणं सौन्दर्यं च सम्यक् साध्यते। मन्त्रगानं, दीपप्रज्वलनं, तथा पुरोहितानाम् मार्गदर्शनं सम्यक् विधिना सम्पद्यते। प्रत्येकः क्रियावली शुद्धतया, श्रद्धया च सम्पन्ना भवति, यस्मिन् सहभागीजनाः दिव्यसौन्दर्यं अनुभवति। एषः समारोहः केवलं दृश्यः न, अपितु भक्तिभावं, सौख्यं, तथा ऐक्यं वर्धयति। अशा दिव्यपूजया जीवनस्य पावनाः क्षणाः स्मरणीयाः चिरस्थायिनः च भविष्यन्ति।
+        </h5>
       </div>
     </div>
     <div class="slide slide3">
       <div class="overlay">
         <h1>सर्वे भवन्तु सुखिनः</h1>
-        <p>Professionally managed Aarti ceremonies</p>
+        <h2>Professionally managed Aarti ceremonies</h2>
+        <h5>
+          सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः – एषः मन्त्रः यथा पूजायाः व्यवस्थानां लक्ष्यं भवति। व्यक्तिगतानां, सामूहिकानां वा आयोजनेषु, अनुभविनः पुरोहिताः संस्कृतिपूर्वकं, सावधानीपूर्वकं च प्रत्येकं कर्म सम्पादयन्ति। मन्त्रगानम्, दीपप्रज्वलनम्, तथा भक्तिपूर्णं वातावरणम् श्रद्धया आयोजितं भवति। एषा क्रिया केवलं बाह्यदृश्यं न, अपितु भक्तानां मनसि शान्तिं, आत्मसंतोषं, तथा आध्यात्मिकप्रसन्नतां वर्धयति। विश्वासपूर्वकं अस्माकं सेवा अनुगृह्यते, यस्मिन् प्रत्येकः सहभागी दिव्यबोधं अनुभवति, आशीर्वादं च लभते।
+        </h5>
       </div>
     </div>
   </div>
@@ -393,6 +496,29 @@ footer {
       <h3>Professional Aarti</h3>
       <p><strong>Customized Aarti services for events and hotels.</strong></p>
       <p>Professional Aarti services are designed for large-scale events, hotels, corporate programs, spiritual gatherings, and cultural occasions where tradition meets organized execution. This service ensures that rituals are performed with complete discipline, authenticity, and coordination while maintaining high standards of professionalism. It is ideal for institutions and events that wish to offer a meaningful spiritual experience to guests and participants.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-card">
+    <h2>Our Devotees Trust Us</h2>
+
+    <div class="stats-container">
+      <div class="stat-box">
+        <span class="stat-number" data-target="150">0</span>
+        <p>Happy Devotees Served</p>
+      </div>
+
+      <div class="stat-box">
+        <span class="stat-number" data-target="40">0</span>
+        <p>Devotees from Maharashtra</p>
+      </div>
+
+      <div class="stat-box">
+        <span class="stat-number" data-target="30">0</span>
+        <p>Devotees from Karnataka</p>
+      </div>
     </div>
   </div>
 </section>
@@ -459,6 +585,47 @@ function scrollToSection(id) {
   });
 }
 </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".stat-number");
+    let hasAnimated = false;
 
+    const animateCounters = () => {
+      if (hasAnimated) return;
+      hasAnimated = true;
+
+      counters.forEach(counter => {
+        const target = +counter.dataset.target;
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 60));
+
+        const update = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = current + "+";
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target + "+";
+          }
+        };
+
+        update();
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          animateCounters();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    const statsSection = document.querySelector(".stats-section");
+    if (statsSection) observer.observe(statsSection);
+  });
+</script>
 </body>
 </html>
