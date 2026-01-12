@@ -422,6 +422,20 @@ footer {
 .footer-socials a:hover {
   color: #f59e0b;
 }
+/*================video container */
+ .video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 </style>
 </head>
 
@@ -499,6 +513,15 @@ footer {
     </div>
   </div>
 </section>
+<section>
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/KcjlQ_C9I20"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section> 
 
 <section class="stats-section">
   <div class="stats-card">
