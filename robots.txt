@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://divyarpan.in/sitemap.xml
+Sitemap: https://varanasigangaarti.in/sitemap.xml
