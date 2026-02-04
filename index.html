@@ -422,19 +422,32 @@ footer {
 .footer-socials a:hover {
   color: #f59e0b;
 }
-/*================video container */
- .video-container {
+
+/*=======video container=======*/
+/* Responsive video */
+.video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
-.video-container iframe {
+
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: 0;
+}
+
+/* Mobile friendly */
+@media (max-width: 900px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -512,14 +525,48 @@ footer {
       <p>Professional Aarti services are designed for large-scale events, hotels, corporate programs, spiritual gatherings, and cultural occasions where tradition meets organized execution. This service ensures that rituals are performed with complete discipline, authenticity, and coordination while maintaining high standards of professionalism. It is ideal for institutions and events that wish to offer a meaningful spiritual experience to guests and participants.</p>
     </div>
   </div>
-</section>
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/KcjlQ_C9I20"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
+  <section class="services">
+  <div class="card">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/KcjlQ_C9I20"
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+     <h3>संस्कार यात्रा</h3>
+     <p>भारतीयसंस्कृतेः परम्पराः विचाराः च अत्र प्रकाश्यन्ते।</p>
   </div>
+
+  <div class="card">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/I9d6R5nnXn0"
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <h3>धर्म मार्गः</h3>
+    <p>जीवनस्य नैतिकमूल्यानि एवं धर्मस्य महत्वं अत्र वर्णितम्।</p>
+  </div>
+
+  <div class="card">
+    <div class="video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/tg5oxAKbMAI"
+        title="YouTube video"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <h3>विद्या दीपः</h3>
+    <p>अस्मिन् चित्रदृश्ये ज्ञानवर्धकः विषयः सरलरूपेण प्रदर्श्यते।</p>
+  </div>
+</section>
+
+</section>
 <section class="stats-section">
   <div class="stats-card">
     <h2>Our Devotees Trust Us</h2>
